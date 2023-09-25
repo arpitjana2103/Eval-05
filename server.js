@@ -9,7 +9,7 @@ dotenv.config({path: './config.env'});
 
 const DB = process.env.DATABASE;
 const DBL = process.env.DATABASE_LOCAL;
-const PORT = process.env.PORT;
+const PORT = process.env.port;
 
 const app = express();
 app.use(express.json());
