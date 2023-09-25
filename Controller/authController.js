@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 
 const register = async function (req, res) {
     try {
-        console.log(req.body);
         const {email, password, passwordConfirm} = req.body;
         if (password !== passwordConfirm)
             throw new Error('Password !== PasswordConfirm');
@@ -30,7 +29,6 @@ const register = async function (req, res) {
 
 const login = async function (req, res) {
     try {
-        console.log('Login Called');
         const {email, password} = req.body;
 
         if (!email || !password) {
@@ -42,8 +40,6 @@ const login = async function (req, res) {
         if (!user) {
             throw new Error('Incorrect Email or Password');
         }
-
-        console.log(user);
 
         const currectPass = await bcrypt.compare(password, user.password);
 
@@ -73,7 +69,7 @@ const login = async function (req, res) {
 
 const protect = async function (req, res, next) {
     try {
-        let token = req.headers.authentication;
+        let token = req.headers.authorization;
 
         if (!token) {
             throw new Error('Please Log-In to continue.');

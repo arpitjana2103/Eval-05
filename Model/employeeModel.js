@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 
 const empSchema = new mongoose.Schema({
-    fname: String,
-
-    lname: String,
+    firstName: String,
+    lastName: String,
     email: String,
     department: {
         type: String,

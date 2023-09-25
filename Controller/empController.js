@@ -47,7 +47,7 @@ const getAllEmp = async function (req, res) {
         let emps = new EmpFeatures(Employee.find(), req.query);
         emps = emps.filter().sort().paginate();
 
-        const docs = await emps.Query();
+        const docs = await emps.Query;
 
         return res.status(200).json({
             status: 'Success',
